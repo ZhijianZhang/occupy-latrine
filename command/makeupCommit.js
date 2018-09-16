@@ -8,10 +8,12 @@ const exists = require('fs').existsSync
 const { exec } = require('child_process');
 
 const getGitUser = require('../src/git-user')
-const operFile = require('../src/oper-file')
+const { readFilePromise, writeFilePromise, existsPromise } = require('../src/oper-file')
 const execPromise = require('../src/exec-promise')
 
 const author = getGitUser()
+
+const
 
 /**
  * 生成 git commit -m “xxx” 语句

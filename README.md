@@ -22,3 +22,6 @@
 原理是 `git commit --date="May 7 9:05:20 2016 +0800" -am "提交"` 这样就能够在你没有提交 commit 的时候提交了。慢慢补充github上的绿色。
 
 git commit --date="Oct 15 9:05:20 2018 +0800" -am "提交"
+
+
+git commit --date="Sep 16 2018 20:24:48 GMT+0800 (中国标准时间)" -am "getLatestDate"

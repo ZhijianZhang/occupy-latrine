@@ -1,6 +1,6 @@
 {
   "name": "occupy-latrine",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "publish a simple npm package  to occupy a specific name",
   "scripts": {
     "dev": "npm link",
@@ -24,5 +24,6 @@
     "commander": "^2.18.0",
     "ora": "^3.0.0",
     "request": "^2.88.0"
-  }
+  },
+  "dependencies": {}
 }

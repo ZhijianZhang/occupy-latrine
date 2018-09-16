@@ -67,7 +67,7 @@ async function parser(username) {
   const svg = $('g[transform="translate(16, 20)"]', wrapper).html()
   const gList = $('g', svg)
 
-  let jsonResult = []
+  let jsonResult = {}
 
   gList.each((i, g) => {
     // console.log($(this).html())
@@ -85,10 +85,7 @@ async function parser(username) {
       dataDate = $(rect).attr('data-date')
       // console.log(dataDate, ' ', dataCount)
 
-      jsonResult.push({
-        [dataDate]: dataCount
-      })
-
+      jsonResult[dataDate] = dataCount
     })
 
 
