@@ -2,9 +2,9 @@
   "name": "occupy-latrine",
   "version": "0.0.1",
   "description": "publish a simple npm package  to occupy a specific name",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm link",
     "start": "node bin/latrine"
   },
   "bin": {
@@ -15,6 +15,7 @@
     "package"
   ],
   "author": "mrjzhang",
+  "git": "https://github.com/ZhijianZhang/occupy-latrine",
   "license": "MIT",
   "devDependencies": {
     "chalk": "^2.4.1",
