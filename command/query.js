@@ -1,29 +1,37 @@
 'use strict'
 const co = require('co')
 const prompt = require('co-prompt')
-const chalk = require('chalk')
 const request = require('request');
+const ora = require('ora');
+const logger = require('../src/logger')
 
 module.exports = () => {
   co(function* () {
 
-    let packageName = yield prompt('Package name: ')
-    let isExist = false
-    // todo 打印加载中。。。。
-    console.log(chalk.blue("querying ..."))
+    let [a, b, target, ...params] = process.argv
+    let packageName = params[0]
 
-    request(`https://www.npmjs.com/package/${packageName}`, function (error, response, body) {
+    if (!packageName) {
+      packageName = yield prompt('Package name: ')
+    }
+    let isExist = false
+
+    const spinner = ora('querying ...')
+    spinner.start()
+
+    request(`https://www.npmjs.com/package/${packageName}`, (error, response, body) => {
+      spinner.stop()
       if (!error) {
         isExist = response.statusCode !== 404
         if (isExist) {
-          console.log(chalk.red(`Package named ${packageName} is already existed!`))
+          logger.fail(`Package named ${packageName} is already existed!`)
         } else {
-          console.log(chalk.green(`Package named ${packageName} is not already existed!`))
+          logger.success(`Package named ${packageName} is not already existed!`)
         }
         process.exit()
 
       } else {
-        console.log(chalk.red("error" + error))
+        logger.fail("error" + error)
         process.exit()
       }
     })
