@@ -11,9 +11,7 @@ module.exports = cmd => {
         process.exit()
       } else {
         logger.success('Exec Success ')
-        resolve({
-          msg: 'ok'
-        })
+        resolve(stdout)
       }
     });
   })

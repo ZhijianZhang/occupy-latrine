@@ -21,6 +21,14 @@ program
   })
 
 program
+  .command('github')
+  .description('create a git repo for your package')
+  .alias('g')
+  .action(() => {
+    require('../command/createGit')()
+  })
+
+program
   .command('publish')
   .description('publish a package')
   .alias('p')

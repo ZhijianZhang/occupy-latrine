@@ -2,13 +2,13 @@ const fs = require('fs')
 const logger = require('../src/logger')
 
 
-exports.readFilePromise = function (filename, format = 'utf-8') {
+exports.readFilePromise = function (filename, format = 'utf-8', nologger = true) {
   return new Promise((resolve, reject) => {
     fs.readFile(filename, format, (err, data) => {
       if (err)
         reject(err)
       else {
-        logger.success('read file success!')
+        nologger && logger.success('read file success!')
         resolve(data)
       }
     })
@@ -16,15 +16,15 @@ exports.readFilePromise = function (filename, format = 'utf-8') {
 }
 
 
-exports.writeFilePromise = function (filename, data, format = 'utf-8') {
+exports.writeFilePromise = function (filename, data, format = 'utf-8', nologger = true) {
   return new Promise((resolve, reject) => {
     fs.writeFile(filename, JSON.stringify(data), format, (err) => {
-      logger.info('writing...')
+      nologger && logger.info('writing...')
       if (err) {
         logger.fail('err' + err)
         reject(err)
       } else {
-        logger.success('write file success ...!')
+        nologger && logger.success('write file success ...!')
         resolve({
           msg: 'ok'
         })
