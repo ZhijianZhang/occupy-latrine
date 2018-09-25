@@ -9,4 +9,7 @@ before_install:
   -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 after_success:
-- ssh root@119.23.63.192 StrictHostKeyChecking=no 'cd /usr/local/workspace/kaiyuan/occupy-latrine/'
+- ssh root@119.23.63.192 StrictHostKeyChecking=no 'cd /usr/local/workspace/kaiyuan/occupy-latrine/ && git pull'
+
+addons:
+  ssh_known_hosts: 119.23.63.192
