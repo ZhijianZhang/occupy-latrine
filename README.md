@@ -1,4 +1,5 @@
-# occupy latrine
+# occupy latrine 
+[![Build Status](https://www.travis-ci.org/ZhijianZhang/occupy-latrine.svg?branch=master)](https://www.travis-ci.org/ZhijianZhang/occupy-latrine)
 
 关于这个名字，占（茅）坑。 是有点味道的一个项目。请勿在吃东西时查看。
 
@@ -8,3 +9,5 @@
 - latrine q [packagename] 查询某个包名是否在npm上已经发布，别人提前一步，就没办法占坑了哦~
 - latrine p [packagename] 在本地创建一个最简单的npm包，并自动提交到npm，完成占坑。
 - latrine g [packagename] 将本地刚（创建的）的git目录，用api的形式，自动去github创建一个repo。让占坑来的更加理直气壮。
+
+## todo
