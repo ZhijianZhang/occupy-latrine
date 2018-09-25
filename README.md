@@ -1,4 +1,5 @@
-# occupy latrine
+# occupy latrine 
+[![Build Status](https://www.travis-ci.org/ZhijianZhang/occupy-latrine.svg?branch=master)](https://www.travis-ci.org/ZhijianZhang/occupy-latrine)
 
 关于这个名字，占（茅）坑。 是有点味道的一个项目。请勿在吃东西时查看。
 
