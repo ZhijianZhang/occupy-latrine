@@ -10,7 +10,7 @@ const tokenUtils = require('../src/token')
 
 module.exports = async () => {
   const token = await tokenUtils.getToken()
-  // console.log(token)
+  // console.log('token: ', token)
 
   co(function* () {
 
@@ -22,23 +22,24 @@ module.exports = async () => {
     }
     let isExist = false
 
-    let gitUserName
-    let gitToken
+    let gitUserName = token.name
+    let gitToken = token.token
 
-    if (token && !token.name) {
+    if (!token || !token.name) {
       gitUserName = yield prompt('git username: ')
     } else {
       logger.info(`Hi, ${gitUserName}`)
     }
 
-    if (token && !token.token) {
+    if (!token || !token.token) {
       gitToken = yield prompt('github token: ')
     } else {
       logger.info(`you had saved token: ${gitToken}`)
     }
 
     // 异步任务，写token
-    tokenUtils.saveToken(gitUserName, gitToken)
+    if (gitUserName && gitToken)
+      tokenUtils.saveToken(gitUserName, gitToken)
 
     // let gitUserName = 'gnailiy'
     // let gitToken = '0e308d8e308fb36c255cc17ebe1212a1073fa3db'
@@ -47,6 +48,8 @@ module.exports = async () => {
       .cwd()
       .replace(/[\\]/g, '/') + '/' + packageName
 
+    // FIXME:
+    // 如果就在当前项目目录 xxx 下执行 latrine g xxx 会不成功
     if (exists(packageName)) {
       const gitInitCmd = `cd ${packageName} && git init && git add . && git commit -m 'occupy-latrine first commit.'`
       const createRepoCmd = `curl -u "${gitUserName}:${gitToken}" https://api.github.com/user/repos -d '{"name":"${packageName}"}'`
