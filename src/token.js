@@ -6,6 +6,7 @@ const logger = require('./logger')
 
 const tokenFileSrc = path.join(__dirname, '../config-token.json')
 
+// console.log('tokenFileSrc', tokenFileSrc)
 // 没有文件的话，应该需要创建
 // if (!exists(tokenFileSrc)) {
 //   const body = {
@@ -37,21 +38,21 @@ function delToken() {
 }
 
 function getToken() {
-  let body = {
-    name: '',
-    token: ''
-  }
   if (exists(tokenFileSrc)) {
-    operFile.readFilePromise(tokenFileSrc, 'utf-8', false).then(resp => {
-      body = {
-        ...JSON.parse(resp),
-        body
+    return operFile.readFilePromise(tokenFileSrc, 'utf-8', false).then(resp => {
+
+      let result = JSON.parse(resp)
+      let body = {
+        name: result.username || '',
+        token: result.token || ''
       }
+      return new Promise((resolve, reject) => {
+        resolve(body)
+      })
     })
   } else {
     logger.fail('token config file is not existed.')
   }
-  return body
 }
 
 exports.saveToken = saveToken

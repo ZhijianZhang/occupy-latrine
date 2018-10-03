@@ -8,6 +8,8 @@
 ## latrine style
 - latrine q [packagename] 查询某个包名是否在npm上已经发布，别人提前一步，就没办法占坑了哦~
 - latrine p [packagename] 在本地创建一个最简单的npm包，并自动提交到npm，完成占坑。
-- latrine g [packagename] 将本地刚（创建的）的git目录，用api的形式，自动去github创建一个repo。让占坑来的更加理直气壮。
+- latrine g [packagename] 将本地刚（创建的）的目录，用api的形式，自动去github创建一个repo。让占坑来的更加理直气壮。
 
-## todo
+## change log
+### fix: 
+- 2018.10.3 修复 github token 读写不成功的问题
