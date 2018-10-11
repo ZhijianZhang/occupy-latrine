@@ -1,7 +1,10 @@
 {
   "name": "occupy-latrine",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "publish a simple npm package  to occupy a specific name",
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "dev": "npm link",
     "start": "node bin/latrine"
@@ -10,10 +13,21 @@
     "latrine": "bin/latrine"
   },
   "keywords": [
-    "np",
-    "package"
+    "npm",
+    "package",
+    "git",
+    "commit",
+    "repository"
   ],
-  "author": "mrjzhang",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhijianZhang/occupy-latrine"
+  },
+  "author": "https://github.com/ZhijianZhang",
+  "bugs": {
+    "url": "https://github.com/ZhijianZhang/occupy-latrine/issues"
+  },
+  "homepage": "https://github.com/ZhijianZhang/occupy-latrine#README",
   "git": "https://github.com/ZhijianZhang/occupy-latrine",
   "license": "MIT",
   "devDependencies": {
