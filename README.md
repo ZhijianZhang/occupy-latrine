@@ -15,6 +15,11 @@
 ### fix: 
 - 2018.10.3 修复 github token 读写不成功的问题
 
+### feature：
+#### makeup commits
+- 2018.10.16 增加了“弥补”提交 commit 到未提交的日期的功能，为了好多好多的“深绿色”。
+- 2018.10.16 增加了拉取 commits 缓存机制
+
 
 
 ## feature
@@ -23,10 +28,11 @@
 原理是 `git commit --date="May 7 9:05:20 2016 +0800" -am "提交"` 这样就能够在你没有提交 commit 的时候提交了。慢慢补充github上的绿色。
 
 ### todo
-1. makeup commit 的缓存机制： 不应该每次 commit 的时候都去拉一次列表
-2. 最好能够 提示开发者输入 emoji
-3. 最好是通过本地计数，又可以强制更新，加快 makeup commit 的速度
+1. 最好能够 提示开发者输入 emoji
+2. 最好是通过本地计数，又可以强制更新，加快 makeup commit 的速度
+3. console 加载中 动画，叫什么来着
 
 ### done
 1. 可以强制拉取 commit 次数 
 2. 直接 push
+3. makeup commit 的缓存机制： 不应该每次 commit 的时候都去拉一次列表， 有过期时间
