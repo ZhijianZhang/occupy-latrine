@@ -2,6 +2,8 @@ const cheerio = require('cheerio')
 const https = require("https");
 const logger = require('./logger')
 const operFile = require('../src/oper-file')
+const { isOverdue, clockNow } = require('../src/history')
+const { getCacheCommits } = require('../src/date')
 
 /**
  * download 一个 html dom 数据
@@ -70,57 +72,48 @@ async function parser(username) {
   let jsonResult = {}
 
   gList.each((i, g) => {
-    // console.log($(this).html())
-    // console.log(g)
-    // console.log(i)
-
     const rectDom = $(g).children('rect')
     // console.log(rectDom.length)
 
     let dataCount, dataDate
-
     rectDom.each((i, rect) => {
-
       dataCount = $(rect).attr('data-count')
       dataDate = $(rect).attr('data-date')
-      // console.log(dataDate, ' ', dataCount)
-
       jsonResult[dataDate] = dataCount
     })
-
-
-    // console.log($(this).html().attr("width"))
-    // dataCount = $(this).attr('data-count')
-    // dataDate = $(this).attr('data-date')
   })
-
-  // console.log('jsonResult', jsonResult)
 
   const tempJsonFileName = `/Users/zhijianzhang/project/kaiyuan/occupy-latrine/temp/${username}.json`
 
   await operFile.writeFilePromise(tempJsonFileName, jsonResult)
-
+  await clockNow()
   logger.success('download json success')
 
-  // console.log(gList)
-  // console.log('svg', svg)
-
-
-  // gList.each(gDom => {
-  //   let json, dataCount, dataDate
-  //   console.log('gDom', gDom)
-  //   gDom.each(rectDom => {
-  //     console.log('rectDom', rectDom)
-  //     // dataCount = $(rectDom).attr('data-count')
-  //     // dataDate = $(rectDom).attr('data-date')
-
-  //     // console.log(dataCount, ' ', dataDate)
-  //   })
-  // });
   return jsonResult
 }
 
+
+
+
+/**
+ * 通过网络 或者 缓存获取 commits
+ * @param {*} username 
+ */
+async function getCommits(username) {
+  // 判断本地存取的 commits 是否过期
+  const overdue = await isOverdue()
+  logger.info(overdue ? '缓存已过期, 重新拉取 commits.' : '缓存未过期, 读取缓存数据.')
+  // 如果过期，就重新读取
+  if (overdue) {
+    return await parser(username)
+  }
+
+  // 如果没有过期，就读取本地文件数据就行
+  return await getCacheCommits(username)
+}
+
+exports.getCommits = getCommits;
 exports.parser = parser;
 
 // test
-// parser('ZhijianZhang')
+// getCommits('ZhijianZhang')

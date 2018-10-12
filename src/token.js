@@ -1,5 +1,6 @@
 const operFile = require('./oper-file')
 const path = require('path')
+// TODO: 其实没必要去判断文件存不存在，肯定能写入，文件不存在 writeFile 会自动创建
 const { existsSync: exists } = require('fs')
 const fs = require('fs')
 const logger = require('./logger')

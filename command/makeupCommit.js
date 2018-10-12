@@ -6,7 +6,7 @@ const execPromise = require('../src/exec-promise')
 const { getDate } = require('../src/date')
 const { getToken } = require('../src/token')
 const { readFilePromise } = require('../src/oper-file')
-const { parser } = require('../src/commits')
+const { getCommits } = require('../src/commits')
 
 /**
  * 生成 git commit -m “xxx” 语句
@@ -23,7 +23,7 @@ async function generateGitCommitMessage(message) {
     return
   }
 
-  const commitsArray = await parser(username)
+  const commitsArray = await getCommits(username)
 
   const timeString = commitsArray ? await getDate(username, commitsArray) : await getDate(username)
   // console.log('commitsArray', timeString)
@@ -42,8 +42,7 @@ module.exports = () => {
     }
 
     generateGitCommitMessage(message).then(cmd => {
-      // console.log(cmd)
-
+      console.log(cmd)
       execPromise(cmd).then(resp => {
         logger.success(resp)
       }).catch(err => {

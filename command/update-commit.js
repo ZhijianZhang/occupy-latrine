@@ -4,6 +4,9 @@ const { getToken } = require('../src/token')
 const { readFilePromise } = require('../src/oper-file')
 const { parser } = require('../src/commits')
 
+/**
+ * 强制更新 commits 数据
+ */
 module.exports = async () => {
   const userInfo = await getToken()
   // console.log('userInfo', userInfo)

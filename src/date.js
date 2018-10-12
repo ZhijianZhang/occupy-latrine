@@ -19,6 +19,23 @@ const monthShortName = {
 // 每天提交 commit 的过滤阈值
 const COUNT = 10
 
+
+async function getCacheCommits(username, commitNums) {
+  if (!username) {
+    logger.fail('function getLatestDate need the argument named username.')
+  }
+  let commits = commitNums
+  if (!commitNums) {
+    // TODO: 路径需要更改
+    const commitNumFileName = `/Users/zhijianzhang/project/kaiyuan/occupy-latrine/temp/${username}.json`
+    // TODO: 先假定存在
+    // await existsPromise(commitNumFileName)
+    commits = JSON.parse(await readFilePromise(commitNumFileName))
+  }
+  // console.log('commits', typeof commits)
+  return commits
+}
+
 /**
  * makeup commit 的逻辑：
  * 获取最当前日期开始，commit 次数不足 12 次最近的日期
@@ -28,17 +45,8 @@ const COUNT = 10
  * TODO: 再优化吧。。。
  */
 async function getLatestDate(username, commitNums, count = COUNT) {
-  if (!username) {
-    logger.fail('function getLatestDate need the argument named username.')
-  }
-  let data = commitNums
-  if (!commitNums) {
-    // TODO: 路径需要更改
-    const commitNumFileName = `/Users/zhijianzhang/project/kaiyuan/occupy-latrine/temp/${username}.json`
-    // TODO: 先假定存在
-    // await existsPromise(commitNumFileName)
-    data = JSON.parse(await readFilePromise(commitNumFileName))
-  }
+
+  let data = await getCacheCommits(username)
 
   // TODO: 判断是否对象，不是的话，尝试转化对象，不能转化的话退出
   // 从最近 commit 不足的日子开始
@@ -93,7 +101,9 @@ async function getDate(username, commitNums, count = COUNT) {
 }
 
 exports.getDate = getDate
+exports.getCacheCommits = getCacheCommits
 
 // test
-// getLatestDate('ZhijianZhang')
+// getDate('ZhijianZhang')
 // getGrimmTime()
+// getCacheCommits('ZhijianZhang')
