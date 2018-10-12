@@ -24,6 +24,9 @@
 
 ### todo
 1. makeup commit 的缓存机制： 不应该每次 commit 的时候都去拉一次列表
-2. 可以强制拉取 commit 次数
-3. 直接 push
-4. 最好能够 提示开发者输入 emoji
+2. 最好能够 提示开发者输入 emoji
+3. 最好是通过本地计数，又可以强制更新，加快 makeup commit 的速度
+
+### done
+1. 可以强制拉取 commit 次数 
+2. 直接 push

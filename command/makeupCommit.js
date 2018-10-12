@@ -28,7 +28,7 @@ async function generateGitCommitMessage(message) {
   const timeString = commitsArray ? await getDate(username, commitsArray) : await getDate(username)
   // console.log('commitsArray', timeString)
 
-  let template = `git commit --date="${timeString}" -am "${message}"`
+  let template = `git commit --date="${timeString}" -am "${message}" && git push`
   return template
 }
 

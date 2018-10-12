@@ -37,6 +37,14 @@ program
   })
 
 program
+  .command('update-commit')
+  .description('手动更新 commits ')
+  .alias('update')
+  .action(() => {
+    require('../command/update-commit')()
+  })
+
+program
   .command('publish')
   .description('publish a package')
   .alias('p')
