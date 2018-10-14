@@ -40,7 +40,7 @@ function delToken() {
 function getToken() {
   if (exists(tokenFileSrc)) {
     return operFile.readFilePromise(tokenFileSrc, 'utf-8', false).then(resp => {
-
+      // console.log('readFile token', resp)
       let result = JSON.parse(resp)
       let body = {
         name: result.username || '',

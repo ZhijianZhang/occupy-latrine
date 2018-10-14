@@ -101,6 +101,7 @@ async function parser(username) {
   await operFile.writeFilePromise(tempJsonFileName, jsonResult)
 
   logger.success('download json success')
+
   // console.log(gList)
   // console.log('svg', svg)
 
@@ -116,10 +117,10 @@ async function parser(username) {
   //     // console.log(dataCount, ' ', dataDate)
   //   })
   // });
-
+  return jsonResult
 }
 
 exports.parser = parser;
 
 // test
-parser('ZhijianZhang')
+// parser('ZhijianZhang')

@@ -33,7 +33,7 @@ program
   .description('makeup a git commit to the past time for you')
   .alias('m')
   .action(() => {
-    require('../command/createGit')()
+    require('../command/makeupCommit')()
   })
 
 program
