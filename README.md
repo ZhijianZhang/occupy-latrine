@@ -9,6 +9,7 @@
 - latrine q [packagename] 查询某个包名是否在npm上已经发布，别人提前一步，就没办法占坑了哦~
 - latrine p [packagename] 在本地创建一个最简单的npm包，并自动提交到npm，完成占坑。
 - latrine g [packagename] 将本地刚（创建的）的目录，用api的形式，自动去github创建一个repo。让占坑来的更加理直气壮。
+- latrine c ':rocket: makeupCommits' 提交commit， latrine commit 会根据你的github中今年提交每天提交的 commit 数，来修改 commit 的时间，让你自己慢慢填满你的 github
 
 ## change log
 ### fix: 
@@ -21,5 +22,6 @@
 
 原理是 `git commit --date="May 7 9:05:20 2016 +0800" -am "提交"` 这样就能够在你没有提交 commit 的时候提交了。慢慢补充github上的绿色。
 
-git commit --date="Oct 15 9:05:20 2018 +0800" -am "提交"
-
+### todo
+1. makeup commit 的缓存机制： 不应该每次 commit 的时候都去拉一次列表
+2. 很多 todos

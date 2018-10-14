@@ -29,9 +29,9 @@ program
   })
 
 program
-  .command('makeup')
+  .command('commit')
   .description('makeup a git commit to the past time for you')
-  .alias('m')
+  .alias('c')
   .action(() => {
     require('../command/makeupCommit')()
   })
