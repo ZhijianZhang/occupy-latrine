@@ -24,4 +24,6 @@
 
 ### todo
 1. makeup commit 的缓存机制： 不应该每次 commit 的时候都去拉一次列表
-2. 很多 todos
+2. 可以强制拉取 commit 次数
+3. 直接 push
+4. 最好能够 提示开发者输入 emoji
