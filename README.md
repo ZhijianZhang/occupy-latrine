@@ -13,3 +13,12 @@
 ## change log
 ### fix: 
 - 2018.10.3 修复 github token 读写不成功的问题
+
+
+
+## feature
+### 弥补你的git commits
+
+原理是 `git commit --date="May 7 9:05:20 2016 +0800" -am "提交"` 这样就能够在你没有提交 commit 的时候提交了。慢慢补充github上的绿色。
+
+git commit --date="Oct 15 9:05:20 2018 +0800" -am "提交"
