@@ -2,6 +2,15 @@ const { existsPromise, readFilePromise } = require('../src/oper-file')
 const logger = require('../src/logger')
 
 const monthShortName = {
+  "01": 'Jan',
+  "02": 'Feb',
+  "03": 'Mar',
+  "04": 'Apr',
+  "05": 'May',
+  "06": 'Jun',
+  "07": 'Jul',
+  "08": 'Aug',
+  "09": 'Sep',
   "1": 'Jan',
   "2": 'Feb',
   "3": 'Mar',
@@ -27,7 +36,7 @@ async function getCacheCommits(username, commitNums) {
   let commits = commitNums
   if (!commitNums) {
     // TODO: 路径需要更改
-    const commitNumFileName = `/Users/zhijianzhang/project/kaiyuan/occupy-latrine/temp/${username}.json`
+    const commitNumFileName = `/Users/yiliang/projects/personal/nodejs/occupy-latrine/temp/${username}.json`
     // TODO: 先假定存在
     // await existsPromise(commitNumFileName)
     commits = JSON.parse(await readFilePromise(commitNumFileName))
@@ -104,6 +113,6 @@ exports.getDate = getDate
 exports.getCacheCommits = getCacheCommits
 
 // test
-// getDate('ZhijianZhang')
+// getDate('yiliang114')
 // getGrimmTime()
-// getCacheCommits('ZhijianZhang')
+// getCacheCommits('yiliang114')

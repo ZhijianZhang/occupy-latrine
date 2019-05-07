@@ -1,6 +1,6 @@
 {
   "name": "occupy-latrine",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "publish a simple npm package  to occupy a specific name",
   "engines": {
     "node": ">=8"
@@ -21,16 +21,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZhijianZhang/occupy-latrine"
+    "url": "git+https://github.com/yiliang114/occupy-latrine"
   },
-  "author": "https://github.com/ZhijianZhang",
+  "author": "https://github.com/yiliang114",
   "bugs": {
-    "url": "https://github.com/ZhijianZhang/occupy-latrine/issues"
+    "url": "https://github.com/yiliang114/occupy-latrine/issues"
   },
-  "homepage": "https://github.com/ZhijianZhang/occupy-latrine#README",
-  "git": "https://github.com/ZhijianZhang/occupy-latrine",
+  "homepage": "https://github.com/yiliang114/occupy-latrine#README",
+  "git": "https://github.com/yiliang114/occupy-latrine",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^2.4.1",
     "cheerio": "^1.0.0-rc.2",
     "co": "^4.6.0",
@@ -38,6 +38,5 @@
     "commander": "^2.18.0",
     "ora": "^3.0.0",
     "request": "^2.88.0"
-  },
-  "dependencies": {}
+  }
 }
