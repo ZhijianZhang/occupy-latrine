@@ -30,7 +30,7 @@ function download(url) {
  * @param {*} username 
  */
 async function parser(username) {
-  let tempFileName = `/Users/zhijianzhang/project/kaiyuan/occupy-latrine/temp/${username}.html`
+  let tempFileName = `/Users/yiliang/projects/personal/nodejs/occupy-latrine/temp/${username}.html`
   if (!username) {
     logger.fail('请输入需要解析的github账户名')
     return
@@ -83,7 +83,7 @@ async function parser(username) {
     })
   })
 
-  const tempJsonFileName = `/Users/zhijianzhang/project/kaiyuan/occupy-latrine/temp/${username}.json`
+  const tempJsonFileName = `/Users/yiliang/projects/personal/nodejs/occupy-latrine/temp/${username}.json`
 
   await operFile.writeFilePromise(tempJsonFileName, jsonResult)
   await clockNow()
@@ -116,4 +116,4 @@ exports.getCommits = getCommits;
 exports.parser = parser;
 
 // test
-// getCommits('ZhijianZhang')
+// getCommits('yiliang114')
