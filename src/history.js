@@ -5,7 +5,7 @@ const { existsSync: exists } = require('fs')
 const CACHE = 1 * 3600 * 1000
 
 // 记录每次 提交的真实时间
-let historyFileName = `/Users/yiliang/projects/personal/nodejs/occupy-latrine/temp/history.json`
+let historyFileName = `/Users/yiliang/projects/personal/github/occupy-latrine/temp/history.json`
 
 /**
  * 记录当前时间到文件中

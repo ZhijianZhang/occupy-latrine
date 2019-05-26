@@ -36,7 +36,7 @@ async function getCacheCommits(username, commitNums) {
   let commits = commitNums
   if (!commitNums) {
     // TODO: 路径需要更改
-    const commitNumFileName = `/Users/yiliang/projects/personal/nodejs/occupy-latrine/temp/${username}.json`
+    const commitNumFileName = `/Users/yiliang/projects/personal/github/occupy-latrine/temp/${username}.json`
     // TODO: 先假定存在
     // await existsPromise(commitNumFileName)
     commits = JSON.parse(await readFilePromise(commitNumFileName))
